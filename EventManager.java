@@ -1,20 +1,20 @@
-import java.io.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.io.*; //file handling
+import java.time.LocalDateTime; // time comparison
+import java.time.format.DateTimeFormatter; // date formatting
 import java.util.*;
 
 public class EventManager {
-    private ArrayList<Event> events = new ArrayList<>();
-    private static final String FILE_NAME = "events.txt";
+    private ArrayList<Event> events = new ArrayList<>(); // anni events ni memory lo store chesthundhi
+    private static final String FILE_NAME = "events.txt"; // events anni permanent ga store ayye file
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
 
     public EventManager() {
         loadEventsFromFile();
-    }
+    }  // file lo nunchi save chesina events ni load chesthundhi
 
     public ArrayList<Event> getEvents() {
         return events;
-    }
+    } // table ni display cheyyadam kosam gui dvara use cheyyabaduthundhi
 
     public void addEvent(Event event) {
         events.add(event);
@@ -28,7 +28,7 @@ public class EventManager {
         }
     }
 
-    public ArrayList<Event> getUpcomingEventsWithin24Hours() {
+    public ArrayList<Event> getUpcomingEventsWithin24Hours() { // vache 24 hrs lo unna events gurinchi chepthundhi
         ArrayList<Event> upcoming = new ArrayList<>();
         LocalDateTime now = LocalDateTime.now();
         for (Event e : events) {
@@ -69,4 +69,3 @@ public class EventManager {
         }
     }
 }
-
